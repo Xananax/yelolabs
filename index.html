@@ -1,0 +1,17 @@
+<!doctype html>
+<html><head>
+<title>test</title>
+<link rel="stylesheet/less" type="text/css" href="less/styles.less">
+<script src="scripts/deps/handlebars.js"></script>
+<script data-main="scripts/main" src="scripts/require.js"></script>
+<script type="text/javascript">require.config({paths: {"jquery": "deps/jquery"}})</script>
+<body>
+<script id="Labs" type="text/x-handlebars-template">
+	<ul>
+		{{#each labs}}
+		<li><a href="#" onclick="loadLab('{{this}}')">{{this}}</a></li>
+		{{/each}}
+	</ul>
+</script>
+</body>
+</html>

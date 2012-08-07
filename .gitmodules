@@ -1,0 +1,30 @@
+[submodule "scripts/deps/sizzle"]
+	path = scripts/deps/sizzle
+	url = git://github.com/jquery/sizzle.git
+[submodule "scripts/deps/reqwest"]
+	path = scripts/deps/reqwest
+	url = git://github.com/ded/reqwest.git
+[submodule "scripts/deps/zepto"]
+	path = scripts/deps/zepto
+	url = git://github.com/madrobby/zepto.git
+[submodule "scripts/deps/less"]
+	path = scripts/deps/less
+	url = git://github.com/cloudhead/less.js.git
+[submodule "scripts/deps/backbone"]
+	path = scripts/deps/backbone
+	url = git://github.com/documentcloud/backbone.git
+[submodule "scripts/deps/underscore"]
+	path = scripts/deps/underscore
+	url = git://github.com/documentcloud/underscore.git
+[submodule "scripts/deps/handlebars"]
+	path = scripts/deps/handlebars
+	url = git://github.com/wycats/handlebars.js.git
+[submodule "scripts/deps/lodash"]
+	path = scripts/deps/lodash
+	url = git://github.com/bestiejs/lodash.git
+[submodule "scripts/deps/require"]
+	path = scripts/deps/require
+	url = git://github.com/jrburke/requirejs.git
+[submodule "scripts/deps/r"]
+	path = scripts/deps/r
+	url = git://github.com/jrburke/r.js.git

@@ -1,0 +1,8 @@
+{{#each images}}
+<div class="deferred">
+	<div class="picture" data-src="url('{{media.m}}')" title="{{title}}" style="width:{{width}}px;height:{{height}}px;background-repeat:no-repeat;background-position:0 0;"></div>
+	<noscript>
+		<img src="{{media.m}}.jpg" alt="{{title}}" width="{{width}}" height="{{height}}"/>
+	</noscript>
+</div>
+{{/each}}
