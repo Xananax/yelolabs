@@ -7,11 +7,13 @@
 <script type="text/javascript">require.config({paths: {"jquery": "deps/jquery"}})</script>
 <body>
 <script id="Labs" type="text/x-handlebars-template">
-	<ul>
+	<ul id="Nav">
 		{{#each labs}}
 		<li><a href="#" onclick="loadLab('{{this}}')">{{this}}</a></li>
 		{{/each}}
 	</ul>
 </script>
+<div id="TopMenu">
+</div>
 </body>
 </html>

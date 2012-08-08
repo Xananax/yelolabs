@@ -1,2 +1,66 @@
 /** eric meyer reset **/
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {font-family:sans-serif;margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}body {line-height: 1;}ol.reset, ul.reset, ol.reset ol, ul.reset ul, ol.reset ul, ul.reset ol{list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after,q:before, q:after {content: "";content: none;}table {border-collapse: collapse;border-spacing: 0;}
+
+@import 'vendors.less';
+
+.forFadeIn{
+	opacity:0;
+	.transition(all, 1s);
+}
+
+.fadeIn{
+	opacity:1;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+
+h1{font-size:30px;}
+h2{font-size:24px;}
+h3{font-size:20px;}
+h4{font-size:17px;}
+h5{font-size:15px;}
+
+
+#TopMenu{
+	width:100%;
+	background:#222;
+	padding:10px;
+	height:30px;
+	border-bottom:1px solid #ccc;
+	a{
+		display:block;
+		height:20px;
+		background:#000;
+		float:left;
+		margin-right:10px;
+		padding:5px;
+		color:white;
+		text-decoration:none;
+	}
+}
+
+.lab{
+	border:1px dashed #ccc;
+	margin:10px;
+	padding:10px;
+}
