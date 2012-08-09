@@ -19,16 +19,29 @@
 		border:1px solid #ccc;
 	}
 }
+#ExperimentStack{
+	float:left;
+}
 .stackContainer{
 	position:relative;
 	float:left;
-	&>div{
+	width:600px;
+	margin:20px;
+	background-color: #21235C;
+	>div{
 		width:@width - (@borderSize * 2);
 		height:@height - (@borderSize * 2);
 		background:red;
 		border:@borderSize solid #adadFF;
 		float:left;
 		position: absolute;
+		span{
+			font-size:10px;
+			color:#fdfdfd;
+			font-family: sans-serif;
+			position: absolute;
+			background-color: black;
+		}
 		&.landscape2{
 			width:(@width * 2) - (@borderSize * 2); 
 		}
@@ -46,6 +59,11 @@
 		}
 		&.box{
 			background:#B3B0CA;
+		}
+	}
+	&.ghost{
+		>div{
+			position: relative;
 		}
 	}
 }

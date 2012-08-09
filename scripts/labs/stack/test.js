@@ -1,6 +1,7 @@
 define(function(){
 
 	var currN = -1;
+	var globN = 1;
 
 	function rand(possibilities,exact){
 		currN++;
@@ -22,12 +23,13 @@ define(function(){
 		return o;
 	};
 
-	var ItemsTemplate = Handlebars.compile('{{#each items}}<div class="stackItem {{class}}"></div>{{/each}}');
+	var ItemsTemplate = Handlebars.compile('{{#each items}}<div class="stackItem {{class}}"><span>{{number}}</span></div>{{/each}}');
 
 
 	return function(Stack,template,insert){
 		insert(template());
 		var container = document.getElementById('ItemsContainer');
+		var ghostContainer = document.getElementById('ItemsGhostContainer');
 		var stack = new Stack(container,{
 			width:600
 		,	cellWidth:20
@@ -59,10 +61,12 @@ define(function(){
 			var n = exact ? total : parseInt(f.number.value) || 50;
 			var possibilities = createPossibilities(types);
 			for(var i=0; i<n;i++){
-				data.push({'class':rand(possibilities,exact)})
+				data.push({'class':rand(possibilities,exact),'number':globN})
+				globN++;
 			}
 			currN=-1;
-			container.innerHTML+=ItemsTemplate({items:data})
+			container.innerHTML+=ItemsTemplate({items:data});
+			ghostContainer.innerHTML+=ItemsTemplate({items:data});
 			container.style.height = stack.fit(true).height() + 'px';
 			return false;
 		}
