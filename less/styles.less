@@ -1,5 +1,7 @@
+
 /** eric meyer reset **/
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {font-family:sans-serif;margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}body {line-height: 1;}ol.reset, ul.reset, ol.reset ol, ul.reset ul, ol.reset ul, ul.reset ol{list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after,q:before, q:after {content: "";content: none;}table {border-collapse: collapse;border-spacing: 0;}
+
 
 @import 'vendors.less';
 
@@ -10,6 +12,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 
 .fadeIn{
 	opacity:1;
+	.transition(all, 1s);
 }
 
 .clearfix:after {
@@ -47,6 +50,10 @@ h5{font-size:15px;}
 	padding:10px;
 	height:30px;
 	border-bottom:1px solid #ccc;
+	li{
+		display: block;
+		float: left;
+	}
 	a{
 		display:block;
 		height:20px;
@@ -61,6 +68,7 @@ h5{font-size:15px;}
 
 .lab{
 	border:1px dashed #ccc;
-	margin:10px;
 	padding:10px;
+	width:80%;
+	margin:10px auto;
 }

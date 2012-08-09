@@ -1,9 +1,12 @@
 var loadLab = function(name){}
 require(['require','deps/domReady','deps/less'],function(require,domReady,less){
 
-	var labs = ['deferredImage'];
+	var labs = ['deferredImage','grid','stack'];
+	var labsLoaded = [];
 
 	loadLab = function(name){
+		if(labsLoaded.indexOf(name)!=-1){return;}
+		labsLoaded.push(name);
 		var module = 'labs/'+name+'/index'
 		,	path = 'labs/'+name+'/test'
 		,	template = 'deps/text!labs/'+name+'/index.html'

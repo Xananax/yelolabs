@@ -7,12 +7,11 @@ define(['yelo/Visible'],function(visible){
 	,	invisibleClass:'forFadeIn'
 	,	fadeInClass:'fadeIn'
 	,	interval:500
-	,	simultaneous:0
 	,	fullImage:false
 	,	show:function(item,src){
 			item.style.backgroundImage = 'url("'+src+'")';
 			//item.className = item.className.replace(' '+defaults.invisibleClass,'')
-			item.className+=' '+defaults.fadeInClass;
+			setTimeout(function(){item.className+=' '+defaults.fadeInClass;},100)
 		}
 	,	load:function(item,src,show){
 			var image = new Image();
@@ -23,7 +22,7 @@ define(['yelo/Visible'],function(visible){
 ,	scrollTimer = null
 ,	hasScrolled = true
 ,	hasInit = false
-,	items
+,	items = []
 ,	i = 0
 ,	d = document
 ,	w = window
@@ -48,7 +47,14 @@ define(['yelo/Visible'],function(visible){
 		hasScrolled = true;
 	}
 ,	addItems = function(newItems){
-		items = newItems;
+		if(!newItems.length){return;}
+		for(var i=0; i<newItems.length;i++){
+			if(!newItems[i].getAttribute('data-deferred')){
+				newItems[i].setAttribute('data-deferred','1');
+				items.push(newItems[i]);
+			}
+		}
+		return items;
 	}
 ,	init = function(props){
 		if(props){
@@ -56,8 +62,8 @@ define(['yelo/Visible'],function(visible){
 				defaults[n] = props[n];
 			}
 		}
+		addItems(d.getElementsByClassName(defaults.className));
 		if(hasInit){return true;}
-		items = d.getElementsByClassName('picture');
 		if(!items.length){return false;}
 		hasInit = true;
 		scrollTimer = setInterval(check,defaults.interval);
@@ -74,7 +80,6 @@ define(['yelo/Visible'],function(visible){
 	init.items = addItems;
 
 	if(w.attachEvent){w.attachEvent('onscroll',onScroll)}else{w.addEventListener('scroll',onScroll);};
-
 
 	return init;
 
