@@ -1,0 +1,27 @@
+#Grid{
+	input{
+		width:20px;
+		height:20px;
+	}
+	td, th{
+		border:1px solid black;
+		width:20px;
+		height:20px;
+		text-align: center;
+		vertical-align: middle;
+	}
+	td.contains{
+		background-color: #ababFF;
+	}
+	th{
+		font-weight:bold;
+		color:white;
+		background-color: #222;
+	}
+	tr{
+		background-color:white;
+		&:nth-child(odd){
+			background-color: #eee;
+		}
+	}
+}

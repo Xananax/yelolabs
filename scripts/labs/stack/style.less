@@ -1,0 +1,51 @@
+@width: 20px;
+@height: 20px;
+@borderSize: 1px;
+
+#StackForm{
+	float:left;
+	margin:5px;
+	label,input{
+		display:block;
+		width:80px;
+		height:20px;
+		font-size:10px;
+		float:left;
+	}
+	fieldset{
+		display:block;
+		width:200px;
+		padding:5px;
+		border:1px solid #ccc;
+	}
+}
+.stackContainer{
+	position:relative;
+	float:left;
+	&>div{
+		width:@width - (@borderSize * 2);
+		height:@height - (@borderSize * 2);
+		background:red;
+		border:@borderSize solid #adadFF;
+		float:left;
+		position: absolute;
+		&.landscape2{
+			width:(@width * 2) - (@borderSize * 2); 
+		}
+		&.portrait2{
+			height:(@height * 2) - (@borderSize * 2);
+		}
+		&.line{
+			background:#5E5C70;
+		}
+		&.block{
+			background:#767295;
+		}
+		&.square{
+			background:#ABA6CA;
+		}
+		&.box{
+			background:#B3B0CA;
+		}
+	}
+}
