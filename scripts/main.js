@@ -3,6 +3,7 @@ require(['require','deps/domReady','deps/less'],function(require,domReady,less){
 
 	var labs = ['deferredImage','grid','stack','polledEvent','snap','modal'];
 	var labsLoaded = [];
+	var container = document.getElementById('Wrapper');
 
 	var gotoLab = function(name){
 		document.getElementById(name).scrollIntoView(true);
@@ -28,7 +29,7 @@ require(['require','deps/domReady','deps/less'],function(require,domReady,less){
 					+'</div>'
 				);
 				test(lab,template,function(add){
-					document.body.innerHTML+=add;
+					container.innerHTML+=add;
 					gotoLab(name);
 				})
 			});	

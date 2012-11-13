@@ -111,6 +111,7 @@ define(function(){
 		,	closeClass:'close'
 		,	titleClass:'title'
 		,	buttonsClass:'buttons'
+		,	blurClass:'modal_blur'
 		,	id:ids++
 		,	opacity:70
 		,	close:1
@@ -130,6 +131,7 @@ define(function(){
 		,	onClose:false
 		,	imgBorders:10
 		,	title:''
+		,	blurContainer:true
 		}
 		this._callbacks = {};
 
@@ -140,6 +142,10 @@ define(function(){
 		}
 
 		if(o){this.options(o);}
+		if(this._options.blurContainer == true){
+			this._options.blurContainer = document.body.getElementsByTagName('div')[0];
+			this._options.blurContainer.className+=' __blur__';
+		}
 		if(content){this.content(content);}
 		if(buttons){this.buttons(buttons);}
 	};
@@ -237,6 +243,7 @@ define(function(){
 					_render.inner.style.width=_render.inner.style.height='100px'
 				}
 			}
+			if(o.blurContainer){o.blurContainer.className = o.blurContainer.className.replace('__blur__',o.blurClass);}
 		}
 	,	options:function(opts){
 			var n = arguments.length
@@ -305,6 +312,7 @@ define(function(){
 			//TODO: better event
 			document.onkeypress=null;
 			if(o.onClose){o.onClose()}
+			if(o.blurContainer){o.blurContainer.className = o.blurContainer.className.replace(o.blurClass,'__blur__');}
 			return this;
 		}
 	,	esc:function(e){
