@@ -268,7 +268,6 @@ define(function(){
 				}
 				c = c.shift();
 				if(c.match(regexes.images)){
-					console.log('image!');
 					o.image = c;
 					o.iframe = null;
 					o.url = null;
@@ -276,7 +275,6 @@ define(function(){
 					return this;
 				}
 				if(c.match(regexes.iframe)){
-					console.log('iframe');
 					o.iframe = c;
 					o.url = null;
 					o.image = null;
@@ -284,14 +282,12 @@ define(function(){
 					return this;
 				}
 				if(c.match(regexes.url)){
-					console.log('url!');
 					o.url = c;
 					o.iframe = null;
 					o.image = null;
 					o.html = null;
 					return this;
 				}
-				console.log('just text');
 				o.url = null;
 				o.iframe = null;
 				o.image = null;
@@ -487,7 +483,8 @@ define(function(){
 			}
 			_render.inner.style.width=x;
 			_render.inner.style.height=y;
-			this.size(width,height,animate)
+			this.size(width,height,animate);
+			return this;
 		}
 	,	button:function(name,fn,classes){
 			var btn
