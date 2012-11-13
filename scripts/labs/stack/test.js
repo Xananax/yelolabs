@@ -31,9 +31,8 @@ define(function(){
 		var container = document.getElementById('ItemsContainer');
 		var ghostContainer = document.getElementById('ItemsGhostContainer');
 		var stack = new Stack(container,{
-			width:600
-		,	cellWidth:20
-		,	cellHeight:20
+			cellWidth:193
+		,	cellHeight:151
 		,	mainClassName:'stackContainer'
 		,	selectorClass:'stackItem'
 		,	landscape:'landscape'

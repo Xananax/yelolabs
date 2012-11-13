@@ -17,13 +17,26 @@
 		<label for="ItemsNumber">Number of items</label>
 		<input type="text" value="50" name="number" id="ItemsNumber">
 	</fieldset>
+	<!--
+	<fieldset id="Sizes">
+		<legend>Sizes</legend>
+		<label for="StackSizeX">Height</label>
+		<input id="StackSizeX" name="width" value="150" type="text">
+		<label for="StackSizeY">Width</label>
+		<input id="StackSizeY" name="height" value="40" type="text">
+	</fieldset>
+	-->
 	<input type="submit" name="go" value="go">
 </form>
 <div id="ExperimentStack">
-<h2>Stacked Order<h2>
-<div id="ItemsContainer" class="stackItemsContainer">
-</div>
-<h2>Natural Order<h2>
-<div id="ItemsGhostContainer" class="stackItemsContainer ghost stackContainer">
-</div>
+	<div class="stackItemsWrapper">
+		<h2>Stacked Order</h2>
+		<div id="ItemsContainer">
+		</div>
+	</div>
+	<div class="stackItemsWrapper clearfix ghost">
+		<h2>Natural Order</h2>
+		<div id="ItemsGhostContainer" class="ghost stackContainer">
+		</div>
+	</div>
 </div>

@@ -22,6 +22,9 @@ define(function(){
 
 	StackGrid.prototype = {
 		constructor:StackGrid
+	,	setCols:function(cols){
+			this.cols = cols;
+		}
 	,	getCell:function(coordX,coordY){
 			if(!this.grid[coordY] || !this.grid[coordY][coordX]){return false;}
 			return this.grid[coordY][coordX];

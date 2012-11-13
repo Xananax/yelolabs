@@ -29,12 +29,13 @@ define(['deps/reqwest','yelo/flickr','yelo/Loader'],function(reqwest,flickr,Load
 		insert(template({tag:'banana'}));
 		var f = document.getElementById('FlickrLoader');
 		var container = document.getElementById('FlickrContainer');
-		f.onsubmit = function(){
+		f.onsubmit = function(e){
 			var val = f.tag.value;
 			f.go.value = 'wait...';
 			if(val){
 				loadTag(val,ImageTemplate,container,deferredImage,f.go);
 			}
+			e.returnValue = false; 
 			return false;
 		}
 		loadTag('banana',ImageTemplate,container, deferredImage,f.go);

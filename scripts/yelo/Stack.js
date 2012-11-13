@@ -16,14 +16,6 @@ define(['yelo/StackGrid'],function(StackGrid){
 
 	var defView = document.defaultView;
 
-	var getStyle = defView && defView.getComputedStyle ?
-		function( elem ) {
-			return defView.getComputedStyle( elem, null );
-		} :
-		function( elem ) {
-			return elem.currentStyle;
-		};
-
 	var getPosition = function(el){
 		return{
 			top: el.offsetTop - el.parentNode.scrollTop
@@ -32,31 +24,15 @@ define(['yelo/StackGrid'],function(StackGrid){
 	}
 
 	var Stack = function(el,options){
-		var opts = {
-			width:600
-		,	cellWidth:50
-		,	cellHeight:50
-		,	mainClassName:'stackContainer'
-		,	selectorClass:'item'
-		,	landscape:'landscape'
-		,	portrait:'portrait'
-		};
-		if(options){
-			for(var n in options){
-				opts[n]  = options[n];
-			}
-		}
+		this.cellWidth = 0;
+		this.cellHeight = 0;
+		this.columns = 0;
 		this._width = 0;
 		this._height = 0;
-		this.cellWidth = opts.cellWidth;
-		this.cellHeight = opts.cellHeight;
-		this.columns = opts.width/this.cellWidth;
-		this.grid = new StackGrid(this.columns);
-		this._items = [];
-		el.className+=' '+opts.mainClassName;
 		this.el = el;
-		this.opts = opts;
-
+		this.options(options);
+		this._items = [];
+		el.className+=' '+this.opts.mainClassName;
 	}
 	Stack.prototype = {
 		constructor:Stack
@@ -78,6 +54,33 @@ define(['yelo/StackGrid'],function(StackGrid){
 				}
 			}
 			return this._children;
+		}
+	,	options:function(options,el){
+			if(!el){el = this.el;}
+			var opts = {
+				width: el.offsetWidth || 200
+			,	cellWidth:50
+			,	cellHeight:50
+			,	mainClassName:'stackContainer'
+			,	selectorClass:'item'
+			,	landscape:'landscape'
+			,	portrait:'portrait'
+			};
+			if(options){
+				for(var n in options){
+					opts[n]  = options[n];
+				}
+			}
+			this.cellWidth = opts.cellWidth;
+			this.cellHeight = opts.cellHeight;
+			this.columns = Math.floor(opts.width/opts.cellWidth);
+			this.opts = opts;
+			if(!this.grid){
+				this.grid = new StackGrid(this.columns);
+			}else{
+				this.grid.setCols(this.columns);
+			}
+			return this;
 		}
 	,	items:function(refresh){
 			this.children(refresh);

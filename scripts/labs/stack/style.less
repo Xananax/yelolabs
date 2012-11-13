@@ -1,6 +1,7 @@
-@width: 20px;
-@height: 20px;
+@width: 193px;
+@height: 151px;
 @borderSize: 1px;
+@containerSize:960px;
 
 #StackForm{
 	float:left;
@@ -19,15 +20,30 @@
 		border:1px solid #ccc;
 	}
 }
+h2{
+	margin:10px;
+}
 #ExperimentStack{
 	float:left;
+	position: relative;
+}
+.stackItemsWrapper{
+	float:left;
+	width:@containerSize;
+	padding:10px;
+	background:url('assets/stripes.png');
+	margin:10px;
+	&.ghost{
+		position: absolute;
+		left:@containerSize + 50;
+		top:0;
+	}
 }
 .stackContainer{
 	position:relative;
 	float:left;
-	width:600px;
-	margin:20px;
-	background-color: #21235C;
+	background:rgba(255,255,255,.5);
+	width:@containerSize;
 	>div{
 		width:@width - (@borderSize * 2);
 		height:@height - (@borderSize * 2);
